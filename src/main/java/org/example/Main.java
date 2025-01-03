@@ -1,13 +1,11 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Patient> patients = new ArrayList<>();
+        Set<Patient> patients = new HashSet<>();
 
         while (true) {
             System.out.println("Menu:");
