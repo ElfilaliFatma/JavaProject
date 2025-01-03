@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 @Data
  @NoArgsConstructor
@@ -34,7 +31,7 @@ import java.util.Scanner;
 
 
 
-    public static void getPatientsByAilment(String ailment, List<Patient> patients) {
+    public static void getPatientsByAilment(String ailment, Set<Patient> patients) {
         boolean found = false;
         for (Patient patient : patients) {
             if (patient.getAilment().equalsIgnoreCase(ailment)) {
@@ -49,13 +46,13 @@ import java.util.Scanner;
 
 
 
-    public static void sortPatientsByName(List<Patient> patients)
+    public static void sortPatientsByName(Set<Patient> patients)
     {
-        Collections.sort(patients);
+        List<Patient> patientList = new ArrayList<>(patients);
+        Collections.sort(patientList);
         System.out.println("Patients sorted by name:");
-        for(int i =0 ;i<= patients.size();i++)
+        for(Patient patient :patientList)
         {
-            Patient patient = patients.get(i);
             System.out.println("Patient's name: " + patient.getName());
         }
     }
